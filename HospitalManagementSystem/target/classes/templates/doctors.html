@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient profile</title>
+</head>
+<body style="background-color:powderblue;">
+<hr>
+<H1 align="center">HOSPITAL SWERISIE</H1>
+<hr>
+Hello! DR:<span th:text="${username}"></span>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+
+<a th:href="@{/jsoncalendar}">Schedule</a> 
+<a th:href="@{doctors/doctorAppointments}">Appointments</a> 
+</body>
+</html>

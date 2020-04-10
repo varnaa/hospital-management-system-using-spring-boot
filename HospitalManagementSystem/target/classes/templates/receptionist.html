@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Receptionist</title>
+</head>
+<body style="background-color:powderblue;">
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr> 
+Hello! <span th:text="${username}"></span>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+<hr>
+<h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+<a th:href="@{receptionist/receptionistAppointments}">Appointments</a>
+<a th:href="@{receptionist/receptionistSchedule}">Schedules</a>
+<a th:href="@{receptionist/createInvoice}">Create invoice</a>
+</body>
+</html>

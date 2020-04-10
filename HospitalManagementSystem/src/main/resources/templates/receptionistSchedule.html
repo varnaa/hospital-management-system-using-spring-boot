@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your appointments</title>
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 5px;
+text-align: center;
+}
+table{
+border-spacing: 10px;
+}
+</style>
+</head>
+<body style="background-color:powderblue;">
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr> 
+		<a th:href="@{/receptionist}">homepage</a>
+	<hr>
+	<br>
+	<br>
+	
+<p align = "center">Schedules</p>
+       <br>
+      
+             <hr>
+        <table style="width:100%">
+        <caption>Schedules</caption>
+        
+        <tr>
+            <th>Doctor Name</th>
+            <th>Tittle</th>
+            <th>Description</th>
+            <th>start</th>
+            <th>finish</th>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.name}"></td>
+          	<td th:text="${event.title}"></td>
+          	<td th:text="${event.description}"></td>
+          	<td th:text="${event.start}"></td>
+          	<td th:text="${event.finish}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctors event </title>
+</head>
+<body style="background-color:powderblue;">
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr> <hr>
+	<br>
+	<br>
+	
+<p align = "center"> your appointments </p>
+       
+        <table>
+        <tr>
+            <th>AppointmentID</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Appointment Date</th>
+        </tr>
+        <tr th:each="appointment : ${listAppointments}">
+            <td th:text="${appointment.appointment_id}"></td>
+          	<td th:text="${appointment.patientName}"></td>
+          	<td th:text="${appointment.doctorName}"></td>
+          	<td th:text="${appointment.date}"></td>
+        </tr>
+    </table>
+</body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your appointments</title>
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 5px;
+text-align: center;
+}
+table{
+border-spacing: 10px;
+}
+</style>
+</head>
+<body style="background-color:powderblue;">
+
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr> <hr>
+	<br>
+	<br>
+	<a th:href="@{/doctors}">homepage</a>
+	<a th:href="@{/findbystart}">Today's appointment</a>
+<p align = "center"> your appointments </p>
+
+<div th:if="${doctorAppointments == null}">
+No appointments found
+ </div> 
+ <h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+       
+        <table style="width:100%">
+        <tr>
+            <th>AppointmentID</th>
+            <th>Patient Name</th>
+            <th>Appointment Date</th>
+            <th>Prescription</th>
+        </tr>
+        <tr th:each="appointment : ${doctorAppointments}">
+            <td th:text="${appointment.appointment_id}"></td>
+          	<td th:text="${appointment.patientName}"></td>
+          	<td th:text="${appointment.date}"></td>
+          	<td>
+    <span th:if="${appointment.prescription == 'yes'}"><a th:href="@{/varsha}">Create Prescription</a></span>
+    <span th:unless="${appointment.prescription == 'yes'}">-</span>
+      <span th:if="${appointment.prescription == 'prescribed'}">prescribed</span>
+</td>
+       
+    </table>
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body style="background-color:powderblue;">
+
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 3px;
+text-align: center;
+}
+table{
+border-spacing: 5px;
+}
+</style>
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr> 
+		<a th:href="@{/doctors}">homepage</a>
+	<hr>
+	<br>
+	<br>
+<table style="width:100%">
+        <tr>
+            <th>Appointment ID</th>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>prescription</th>
+        </tr>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.appointment_id}"></td>
+          	<td th:text="${appointment.patientName}"></td>
+          	<td th:text="${appointment.date}"></td>
+          	<td th:text="${appointment.prescription}"></td>
+          	
+        </tr>
+    </table>
+</body>
+</html>

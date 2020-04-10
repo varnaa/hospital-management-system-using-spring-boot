@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient profile</title>
+</head>
+<body style="background-color:powderblue;">
+<hr>
+<H1 align="center">HOSPITAL SWERISIE</H1>
+<hr>
+Hello! <span th:text ="${username}"></span> <br>
+<br>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+<hr>
+<a th:href="@{patients/myAppointments}">view appointments</a>
+<a th:href="@{/viewPrescription}">view prescriptions</a>
+<a th:href="@{patients/cancelAppointment}">cancel appointment</a>
+<hr><hr>
+Schedule your visit by booking an appointment: <a th:href="@{/add}">book appointment</a>
+<br>
+<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+</body>
+</html>

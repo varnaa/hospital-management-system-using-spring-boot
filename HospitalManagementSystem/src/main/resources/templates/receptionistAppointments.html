@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your appointments</title>
+
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 5px;
+text-align: center;
+}
+table{
+border-spacing: 10px;
+}
+</style>
+</head>
+<body style="background-color:powderblue;">
+<hr> <hr>
+	<H1 align="center">HOSPITAL SWERSIE</H1>
+	<hr>
+	<a th:href="@{/receptionist}">homepage</a>
+	 <hr>
+	<br>
+	<br>
+	<h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+	
+       
+        <table style="width:100%">
+        <caption>Appointments</caption>
+        
+        <tr>
+            <th>AppointmentID</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Appointment Date</th>
+            <th>confirmation</th>
+        </tr>
+        <tr th:each=" appointment : ${listAppointments}">
+            <td th:text="${appointment.appointment_id}"></td>
+          	<td th:text="${appointment.patientName}"></td>  
+          	<td th:text="${appointment.doctorName}"></td>
+          	<td th:text="${appointment.date}"></td>
+          	<td>
+			<div th:if="${appointment.confirmed != 'confirmed'}">
+			
+			<form action=# th:action="@{/confirmm}" >
+			     		<input type ="submit" value="click to confirm">
+			</form>
+			</div>
+     		<span th:if="${appointment.confirmed =='confirmed'}"> confirmed
+     		</span>
+     </td>
+     
+    </table>
+   
+    
+</body>
+</html>
